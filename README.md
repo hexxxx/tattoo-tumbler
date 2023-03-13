@@ -6,7 +6,7 @@ Tattoo Tumbler
 |--------------------|-----------------|---------------|------------------|-------------------|------------------|
 | /                  |                 | GET           | read             | home.ejs          | NO               |
 | /tattoos          | index           | GET           | read             | tattoo-index.ejs | NO               |
-| /tattoos/:id      | show            | GET           | read             | pet-details.ejs   | NO               |
+| /tattoos/:id      | show            | GET           | read             | tattoo-details.ejs   | NO               |
 | /tattoos/new      | new             | GET           |                  | new-form.ejs      | NO               |
 | /tattoos          | create          | POST          | create           |                   | NO               |
 | /tattoos/:id/edit | edit            | GET           | read             | edit-form.ejs     | NO               |
