@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs', {title: 'Alice in Wonderland Art Supplies'}) %>
+    <link rel="stylesheet" href="/styles/tattoo-index.css">
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <main>
+        <section class="listings">
+            <h1>Available tattoos</h1>
+            <ul>
+                <% for (let tattoo of tattoos) { %>
+                <li>
+                    <figure>
+                        <img src="<%= tattoo.image %>">
+                        <figcaption>
+                            <h4><%= tattoo.name %></h4>
+                            <p><%= tattoo.brand %>, <%= tattoo.price %> USD, <%= tattoo.category %></p>
+                            <a href="/tattoos/<%= tattoo._id %>">Learn More</a>
+                        </figcaption>
+                    </figure>
+                </li>
+                <% } %>
+            </ul>
+        </section>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>

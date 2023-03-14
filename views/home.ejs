@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs', {title: `Tattoo Tumbler`}) %>
+    <link rel="stylesheet" href="/styles/home.css">
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <main>
+        <section class="hero">
+            <h2>Tattoo Tumbler!</h2>
+            <a href="/tattoos" class="btn">Tattoo Lottery</a>
+        </section>
+
+        <section class="about">
+            <h2>About Tattoo Tumbler</h2>
+            <p>An app that lets a user upload tattoos of interest to a database and then visualize, categorize, and randomly highlight tattoos.
+            </p>
+            <a href="/about" class="btn">Learn More</a>
+        </section>
+
+        <section class="featured-tattoos">
+            <h2>Featured Tattoos</h2>
+            <ul class="tattoo-grid">
+                <% for (let tattoo of tattoos) { %>
+                <li>
+                    <figure>
+                        <img src="<%= tattoo.image %>" alt="filler">
+                    </figure>
+                    <figcaption>
+                        <div class="featured-info">
+                            <h3><%= tattoo.title %></h3>
+                            <p><%= tattoo.description %></p>
+                        </div>
+                        <a href="/tattoos/<%= tattoo._id %>" class="btn">More info</a>
+                </figcaption>
+                </li>
+                <% } %>
+            </ul>
+        </section>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>

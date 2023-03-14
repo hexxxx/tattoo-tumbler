@@ -23,7 +23,7 @@ const db = require('../models') // Require the db connection and models. `../` m
 --------------------------------------------------------------- */
 // Index Route (GET/Read): Will display all tattoos
 router.get('/', function (req, res) {
-    db.tattoo.find({})
+    db.Tattoo.find({})
         .then(tattoos => { // `tattoos` is an array of all the tattoos
             res.render('tattoo-index', { // Render the tattoo-index view
                 tattoos: tattoos // Pass the tattoos data to the view
@@ -38,14 +38,14 @@ router.get('/new', function (req, res) {
 
 // Create Route (POST/Create): Will create a new tattoo document
 router.post('/', function (req, res) {
-    db.tattoo.create(req.body)
+    db.Tattoo.create(req.body)
         .then(tattoo => res.redirect('/tattoos/' + tattoo._id))
 })
 
 // Show Route (GET/Read): Will display an individual tattoo document
 // using the URL parameter (which is the document _id)
 router.get('/:id', function (req, res) {
-    db.tattoo.findById(req.params.id)
+    db.Tattoo.findById(req.params.id)
         .then(tattoo => {
             res.render('tattoo-details', {
                 tattoo: tattoo
@@ -56,7 +56,7 @@ router.get('/:id', function (req, res) {
 
 // Edit Route (GET/Read): Will display a form to edit an individual tattoo document
 router.get('/:id/edit', function (req, res) {
-    db.tattoo.findById(req.params.id)
+    db.Tattoo.findById(req.params.id)
         .then(tattoo => {
             res.render('edit-form', {
                 tattoo: tattoo
@@ -67,7 +67,7 @@ router.get('/:id/edit', function (req, res) {
 
 // Update Route (PUT/Update): Will update an individual tattoo document
 router.put('/:id', function (req, res) {
-    db.tattoo.findByIdAndUpdate(
+    db.Tattoo.findByIdAndUpdate(
         req.params.id,
         req.body,
         { new: true }
@@ -77,7 +77,7 @@ router.put('/:id', function (req, res) {
 
 // Delete Route (DELETE/Destroy): Will delete an individual tattoo document
 router.delete('/:id', function (req, res) {
-    db.tattoo.findByIdAndDelete(req.params.id)
+    db.Tattoo.findByIdAndDelete(req.params.id)
         .then(() => res.redirect('/tattoos'))
 })
 
