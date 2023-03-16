@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head.ejs', {title: `Edit ${tattoo.title} | Tattoo Tumbler`}) %>
+    <link rel="stylesheet" href="/styles/tattoo-form.css">
+  </head>
+  <body>
+    <%- include('./partials/nav.ejs') %>
+    <section class="hero">
+      <h2>Edit a Tattoo</h2>
+      <h4><i>Helping you decide how to indelibly mark your body.</i></h4>
+    </section>
+    <form method="POST" action="/tattoos/<%= tattoo._id %>?_method=PUT">
+      <!-- Title input -->
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" value="<%= tattoo.title %>" required>
+      <br>
+      <!-- Description input -->
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" required><%= tattoo.description %></textarea>
+      <br>
+      <!-- Category input -->
+      <label for="category">Category:</label>
+      <input type="text" id="category" name="category" value="<%= tattoo.category %>" required>
+      <br>
+      <!-- Artist Instagram input -->
+      <label for="artistInsta">Artist Instagram:</label>
+      <input type="text" id="artistInsta" name="artistInsta" value="<%= tattoo.artistInsta %>">
+      <br>
+      <!-- Image input -->
+      <label for="image">Image (URL):</label>
+      <input type="text" id="image" name="image" value="<%= tattoo.image %>" required>
+      <br>
+      <!-- Rating input -->
+      <label for="rating">Rating (0-5):</label>
+      <input type="number" id="rating" name="rating" min="0" max="5" value="<%= tattoo.rating %>" required>
+      <br>
+      <!-- Is Featured input -->
+      <label for="isFeatured">Featured:</label>
+      <input type="checkbox" id="isFeatured" name="isFeatured" <% if (tattoo.isFeatured) { %>checked<% } %>>
+      <br>
+      <input type="submit" value="Edit Tattoo">
+    </form>
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>

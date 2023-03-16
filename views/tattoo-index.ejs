@@ -2,32 +2,36 @@
 <html lang="en">
 
 <head>
-    <%- include('./partials/head.ejs', {title: 'Alice in Wonderland Art Supplies'}) %>
+    <%- include('./partials/head.ejs', {title: 'Tattoo Tumbler | Browse Tattoos'}) %>
     <link rel="stylesheet" href="/styles/tattoo-index.css">
 </head>
 
 <body>
     <%- include('./partials/nav.ejs') %>
 
-    <main>
-        <section class="listings">
-            <h1>Available tattoos</h1>
-            <ul>
-                <% for (let tattoo of tattoos) { %>
-                <li>
-                    <figure>
-                        <img src="<%= tattoo.image %>">
-                        <figcaption>
-                            <h4><%= tattoo.name %></h4>
-                            <p><%= tattoo.brand %>, <%= tattoo.price %> USD, <%= tattoo.category %></p>
-                            <a href="/tattoos/<%= tattoo._id %>">Learn More</a>
-                        </figcaption>
-                    </figure>
-                </li>
-                <% } %>
-            </ul>
-        </section>
-    </main>
+    <section class="hero">
+        <h2>Browse Tattoos</h2>
+        <h4><i>Discover amazing tattoos from talented artists</i></h4>
+    </section>
+
+    <section class="gallery">
+        <% for (let i = 0; i < tattoos.length; i++) { %>
+            <a href="/tattoos/<%= tattoos[i]._id %>">
+                <div class="card">
+                    <img src="<%= tattoos[i].image %>" alt="<%= tattoos[i].title %>">
+                    <div class="details">
+                        <h3><%= tattoos[i].title %></h3>
+                        <p><%= tattoos[i].description %></p>
+                        <p><b>Category:</b> <%= tattoos[i].category %></p>
+                        <% if (tattoos[i].artistInsta) { %>
+                            <p><b>Artist Instagram:</b> <%= tattoos[i].artistInsta %></p>
+                        <% } %>
+                        <p><b>Rating:</b> <%= tattoos[i].rating %>/5</p>
+                    </div>
+                </div>
+            </a>
+        <% } %>
+    </section>
 
     <%- include('./partials/footer.ejs') %>
 </body>

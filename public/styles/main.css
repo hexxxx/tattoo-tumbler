@@ -104,3 +104,82 @@ footer * {
 footer ul {
     justify-content: center;
 }
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  /* Header */
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav {
+    margin-top: 1rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav li:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Hero */
+  .hero {
+    height: auto;
+    padding: 3rem 0;
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+  }
+
+  /* Gallery */
+  .gallery {
+    margin: 2rem 0;
+  }
+
+  .card img {
+    height: 150px;
+  }
+
+  .card .details {
+    padding: 10px;
+  }
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #333;
+}
+
+footer * {
+    color: #fff;
+}
+
+footer ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+footer li:not(:last-child) {
+    margin-right: 1rem;
+}
+
+@media (max-width: 768px) {
+    footer ul {
+        flex-direction: column;
+        margin-bottom: 0;
+    }
+
+    footer li:not(:last-child) {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+}

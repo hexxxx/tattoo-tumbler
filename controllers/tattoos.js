@@ -6,18 +6,15 @@ NOTE: Remember that all routes on this page are prefixed with `localhost:3000/ta
 ---------------------------------------------------------------------------------------
 */
 
-
 /* Require modules
 --------------------------------------------------------------- */
-const express = require('express')
-// Router allows us to handle routing outisde of server.js
-const router = express.Router()
+const express = require('express');
+// Router allows us to handle routing outside of server.js
+const router = express.Router();
 
-
-/* Require the db connection, and models
+/* Require the db connection and models
 --------------------------------------------------------------- */
-const db = require('../models') // Require the db connection and models. `../` means go up one directory
-
+const db = require('../models'); // Require the db connection and models. `../` means go up one directory
 
 /* Routes
 --------------------------------------------------------------- */
@@ -33,14 +30,14 @@ router.get('/', function (req, res) {
 
 // New Route (GET/Read): Will display a form to create a new tattoo
 router.get('/new', function (req, res) {
-    res.render('new-form')
-})
+    res.render('new-form');
+});
 
 // Create Route (POST/Create): Will create a new tattoo document
 router.post('/', function (req, res) {
     db.Tattoo.create(req.body)
-        .then(tattoo => res.redirect('/tattoos/' + tattoo._id))
-})
+        .then(tattoo => res.redirect('/tattoos/' + tattoo._id));
+});
 
 // Show Route (GET/Read): Will display an individual tattoo document
 // using the URL parameter (which is the document _id)
@@ -49,10 +46,10 @@ router.get('/:id', function (req, res) {
         .then(tattoo => {
             res.render('tattoo-details', {
                 tattoo: tattoo
-            })
+            });
         })
-        .catch(() => res.send('404 Error: Page Not Found'))
-})
+        .catch(() => res.send('404 Error: Page Not Found'));
+});
 
 // Edit Route (GET/Read): Will display a form to edit an individual tattoo document
 router.get('/:id/edit', function (req, res) {
@@ -60,10 +57,10 @@ router.get('/:id/edit', function (req, res) {
         .then(tattoo => {
             res.render('edit-form', {
                 tattoo: tattoo
-            })
+            });
         })
-        .catch(() => res.send('404 Error: Page Not Found'))
-})
+        .catch(() => res.send('404 Error: Page Not Found'));
+});
 
 // Update Route (PUT/Update): Will update an individual tattoo document
 router.put('/:id', function (req, res) {
@@ -73,15 +70,14 @@ router.put('/:id', function (req, res) {
         { new: true }
     )
         .then(tattoo => res.redirect('/tattoos/' + tattoo._id))
-})
+});
 
 // Delete Route (DELETE/Destroy): Will delete an individual tattoo document
 router.delete('/:id', function (req, res) {
     db.Tattoo.findByIdAndDelete(req.params.id)
         .then(() => res.redirect('/tattoos'))
-})
-
+});
 
 /* Export these routes so that they are accessible in `server.js`
 --------------------------------------------------------------- */
-module.exports = router
+module.exports = router;

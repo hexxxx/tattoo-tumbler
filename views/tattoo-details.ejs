@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs', {title: `${tattoo.title} | Tattoo Tumbler`}) %>
+    <link rel="stylesheet" href="/styles/tattoo-details.css">
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div>
+        <img src="<%= tattoo.image %>">
+
+        <h2 class="tattoo-title"><%= tattoo.title %></h2>
+
+        <section>
+            <p><strong>Description:</strong> <%= tattoo.description %></p>
+            <p><strong>Category:</strong> <%= tattoo.category %></p>
+            <p><strong>Artist Instagram:</strong> <%= tattoo.artistInsta || 'N/A' %></p>
+            <p><strong>Rating:</strong> <%= tattoo.rating %>/5</p>
+            <p><strong>Featured:</strong> <%= tattoo.isFeatured ? 'Yes' : 'No' %></p>
+        </section>
+
+        <section class="actions">
+            <button class="btn"><a href="/tattoos/<%= tattoo._id %>/edit">Edit</a></button>
+            <form method="POST" action="/tattoos/<%= tattoo._id %>?_method=DELETE">
+                <input class="btn" type="submit" value="Delete" />
+            </form>
+        </section>
+
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>

@@ -3,7 +3,10 @@ body {
     font-size: 16px;
     line-height: 1.5;
     color: #333;
-    background-color: #f7f7f7;
+    background-image: url('/images/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     min-height: 100vh;
 }
 
@@ -15,6 +18,7 @@ div {
     padding: 20px;
     margin: 4vh auto;
     box-shadow: 2px 2px 5px #ccc;
+    background-color: #fff;
 }
 
 img {
@@ -26,8 +30,8 @@ img {
     margin-bottom: 10px;
 }
 
-.tattoo-name {
-    font-size: 32px;
+.tattoo-title {
+    font-size: 48px;
     margin-bottom: 10px;
 }
 
@@ -37,12 +41,34 @@ section {
 }
 
 p {
-    font-size: 18px;
+    font-size: 24px;
     margin-bottom: 10px;
 }
 
 strong {
     font-weight: bold;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.actions button {
+    /* background-color: #333; */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.actions button:hover {
+    transform: translateY(-3px);
+    box-shadow: 2px 2px 5px #ccc;
 }
 
 .featured {
