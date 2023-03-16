@@ -12,7 +12,7 @@
     <main>
         <section class="hero">
             <h2>Tattoo Tumbler!</h2>
-            <a href="/tattoos" class="btn">Tattoo Lottery</a>
+            <a href="/tattoos" class="btn">Index</a>
         </section>
 
         <section class="about">
@@ -23,7 +23,7 @@
         </section>
 
         <section class="featured-tattoos">
-            <h2>Featured Tattoos</h2>
+            <h2>Highlights</h2>
             <ul class="tattoo-grid">
                 <% for (let tattoo of tattoos) { %>
                 <li>
@@ -35,7 +35,7 @@
                             <h3><%= tattoo.title %></h3>
                             <p><%= tattoo.description %></p>
                         </div>
-                        <a href="/tattoos/<%= tattoo._id %>" class="btn">Details</a>
+                        <a href="/tattoos/<%= tattoo._id %>" class="btn">More Info</a>
                 </figcaption>
                 </li>
                 <% } %>
