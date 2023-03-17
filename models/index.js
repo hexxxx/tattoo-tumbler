@@ -14,6 +14,8 @@ const mongodbUri = process.env.MONGODBURI;
 
 // Export the models so that they can be imported in other files
 module.exports = {
-    Tattoo: require('./tattoo'),
-    seedTattoos: require('./seed')
+    Tattoo: require('./tattoo'), 
+    Artist: require('./artist'),
+    seedTattoos: require('./seed'),
+    seedArtists: require('./seedArtists')  
 }

@@ -7,6 +7,7 @@ const livereload = require("livereload");
 const connectLiveReload = require("connect-livereload");
 const methodOverride = require('method-override');
 const tattoosCtrl = require('./controllers/tattoos');
+const artistsCtrl = require('./controllers/artists');
 
 /* Require the db connection, models, and seed data
 --------------------------------------------------------------- */
@@ -40,7 +41,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static('public'))
 app.use(connectLiveReload());
 app.use(methodOverride('_method'));
-
+app.use(express.urlencoded({ extended: true })); // Parse form data
 
 
 /* ############################################################### 
@@ -77,6 +78,19 @@ app.get('/seed', function (req, res) {
         })
 })
 
+app.get('/seedArtists', function (req, res) {
+    db.Artist.deleteMany({})
+        .then(removedArtists => {
+            console.log('Removed ${removedArtists.length} artists')
+
+            db.Artist.insertMany(db.seedArtists) // Insert the seed data
+                .then(addedArtists => { // `addedArtists` is an array of all the artists that were added
+                    console.log('Added ${addedArtists.length} artists')
+                    res.json(addedArtists) // Send the array of added artists as JSON
+                })
+        })
+})
+
 // Route for tattoo details
 app.get('/tattoo/:id', function (req, res) {
     db.Tattoo.findById(req.params.id)
@@ -89,8 +103,12 @@ app.get('/tattoo/:id', function (req, res) {
 })
 
 // This tells our app to look at the `controllers/tattoos.js` file 
-// to handle all routes that begin with `localhost:3000/tattoos`
+// to handle all routes that begin with `localhost:3000/tattoos` 
 app.use('/tattoos', tattoosCtrl)
+
+// This tells our app to look at the `controllers/artists.js` file
+// to handle all routes that begin with `localhost:3000/artists`
+app.use('/artists', artistsCtrl)
 
 // The catch-all route
 app.get('*', function (req, res) {

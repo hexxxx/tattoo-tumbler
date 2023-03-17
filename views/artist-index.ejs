@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs', {title: 'Tattoo Tumbler | Browse Artists'}) %>
+    <link rel="stylesheet" href="/styles/artist-index.css">
+</head>
+
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <section class="hero">
+        <h2>Browse Artists</h2>
+        <!-- <h4><i>Discover amazing artists from talented artists</i></h4> -->
+    </section>
+
+    <section class="gallery">
+        <% for (let i = 0; i < artists.length; i++) { %>
+            <a href="/artists/<%= artists[i]._id %>">
+                <div class="card">
+                    <img src="<%= artists[i].photo %>" alt="<%= artists[i].name %>">
+                    <div class="details">
+                        <h3><%= artists[i].name %></h3>
+                        <p><%= artists[i].location %></p>
+                        <% if (artists[i].artistInsta) { %>
+                            <p><b>Artist Instagram:</b> <%= artists[i].artistInsta %></p>
+                        <% } %>
+                    </div>
+                </div>
+            </a>
+        <% } %>
+    </section>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>

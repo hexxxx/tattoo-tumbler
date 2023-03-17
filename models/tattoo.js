@@ -1,6 +1,6 @@
 // Creates the Tattoo model.
 
-// Require mongoose
+// Require mongoose 
 const mongoose = require('mongoose');
 
 const tattooSchema = new mongoose.Schema({

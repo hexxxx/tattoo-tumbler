@@ -55,6 +55,7 @@ router.get('/:id', function (req, res) {
 router.get('/:id/edit', function (req, res) {
     db.Tattoo.findById(req.params.id)
         .then(tattoo => {
+            console.log(tattoo);
             res.render('edit-form', {
                 tattoo: tattoo
             });

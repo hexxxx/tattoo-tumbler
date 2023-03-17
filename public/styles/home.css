@@ -2,59 +2,106 @@
 
 /* About section styles */
 .about {
-    /* background-color: #fff; */
     background-image: linear-gradient(to right, #6ac4a2, #f7f7f7);
     padding: 2rem;
-}
-
-.about h2 {
+  }
+  
+  .about h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
-}
-
-.about p {
+  }
+  
+  .about p {
     margin-bottom: 1rem;
-}
-
-/* Featured tattoos section styles */
-.featured-tattoos {
-    /* background-color: #f7f7f7; */
+  }
+  
+  /* Featured tattoos section styles */
+  .featured-tattoos {
     background-image: linear-gradient(to right, #6ac4a2, #f7f7f7);
     padding: 2rem;
-}
-
-.featured-tattoos h2 {
+  }
+  
+  .featured-tattoos h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
-}
-
-.tattoo-grid {
+  }
+  
+  .tattoo-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     list-style: none;
     margin-top: 2rem;
-}
-
-.tattoo-grid li {
+  }
+  
+  .tattoo-grid li {
     flex-basis: calc(33.33% - 1rem);
     margin-bottom: 2rem;
     background-color: #fff;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-}
-
-.tattoo-grid img {
+  }
+  
+  .tattoo-grid img {
     width: 100%;
     height: 65%;
     object-fit: cover;
-}
-
-.tattoo-grid h3 {
+  }
+  
+  .tattoo-grid h3 {
     font-size: 1.5rem;
     margin: 0.5rem 1rem;
-}
-
-.tattoo-grid p {
+  }
+  
+  .tattoo-grid p {
     margin: 0.5rem 1rem;
-}
+  }
+  
+  /* Media queries for responsive design */
+  
+  @media screen and (max-width: 767px) {
+    .about,
+    .featured-tattoos {
+      padding: 1rem;
+    }
+  
+    .about h2,
+    .featured-tattoos h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+  
+    .about p,
+    .featured-tattoos p {
+      margin-bottom: 0.5rem;
+    }
+  
+    .tattoo-grid li {
+      flex-basis: calc(50% - 1rem);
+    }
+  
+    .tattoo-grid h3,
+    .tattoo-grid p {
+      font-size: 1.2rem;
+      margin: 0.5rem;
+    }
+  }
+  
+  @media screen and (min-width: 768px) and (max-width: 991px) {
+    .about,
+    .featured-tattoos {
+      padding: 1.5rem;
+    }
+  
+    .about h2,
+    .featured-tattoos h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+    }
+  
+    .about p,
+    .featured-tattoos p {
+      margin-bottom: 0.75rem;
+    }
+  }
+  

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include('./partials/head.ejs', {title: `Edit ${tattoo.title} | Tattoo Tumbler`}) %>
+    <!-- put back in thing-->
     <link rel="stylesheet" href="/styles/tattoo-form.css">
   </head>
   <body>
@@ -37,8 +37,11 @@
       <br>
       <!-- Is Featured input -->
       <label for="isFeatured">Featured:</label>
-      <input type="checkbox" id="isFeatured" name="isFeatured" <% if (tattoo.isFeatured) { %>checked<% } %>>
-      <br>
+      <!-- <input type="checkbox" id="isFeatured" name="isFeatured"> -->
+      <select id="isFeatured" name="isFeatured">
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        <br>
       <input type="submit" value="Edit Tattoo">
     </form>
     <%- include('./partials/footer.ejs') %>

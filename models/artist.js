@@ -1,15 +1,14 @@
 // Creates the Tattoo model.
 
+
 // Require mongoose
 const mongoose = require('mongoose');
 
 const artistSchema = new mongoose.Schema({
     name: { type: String, required: true },
     location: { type: String, required: true },
-    category: { type: String, required: true },
-    artistInsta: { type: String },
+    artistInsta: { type: String, required: true },
     photo: { type: String, required: true },
-    isFavorite: { type: Boolean, required: true },
 }); 
 
 

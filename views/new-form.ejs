@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs', {title: 'Tattoo Tumbler | Add a Tattoo'}) %>
+    <link rel="stylesheet" href="/styles/new-form.css">
+</head>
+
 <section class="hero">
     <h2>Add a Tattoo</h2>
     <h4><i>Share your ink with the world</i></h4>
@@ -40,7 +48,10 @@
     <br>
     <!-- Featured input -->
     <label for="isFeatured">Featured:</label>
-    <input type="checkbox" id="isFeatured" name="isFeatured">
+    <!-- <input type="checkbox" id="isFeatured" name="isFeatured"> -->
+    <select id="isFeatured" name="isFeatured">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
     <br>
     <input type="submit" value="Add Tattoo">
 </form>
