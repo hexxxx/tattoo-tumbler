@@ -3,7 +3,7 @@ const artists = [
         name: "Jonny G",
         location: "New York, NY",
         artistInsta: "https://www.instagram.com/jonnyg123/?hl=en",
-        photo: "https://www.instagram.com/p/CpOUHxNOWM-/?hl=en",
+        photo: "https://d1kq2dqeox7x40.cloudfront.net/images/profile/images/20190714_qK9JHhMBCUDjy7n.png",
     },
     {
         name: "Joo",
